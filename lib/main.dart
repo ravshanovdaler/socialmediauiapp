@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  List<String> profileImages = [
+    'images/1.jpg',
+    'images/2.jpg',
+    'images/3.jpg',
+    'images/4.jpg',
+    'images/5.jpg',
+  ];
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -50,115 +55,28 @@ class MyApp extends StatelessWidget {
           ),
           actions: [
             IconButton(onPressed: () {}, icon: Icon(Icons.favorite_border)),
-            IconButton(onPressed: () {}, icon: Icon(Icons.chat_bubble_outline))
+            IconButton(onPressed: () {}, icon: Icon(Icons.chat_bubble_outline)),
           ],
         ),
-        body: const Column(
-          children: <Widget>[
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  Column(
-                    children: <Widget>[
-                      CircleAvatar(
-                        child: Icon(Icons.account_circle),
-                        radius: 35,
-                      ),
-                      Text('Profile name')
-                    ],
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Column(
-                    children: <Widget>[
-                      CircleAvatar(
-                        child: Icon(Icons.account_circle),
-                        radius: 35,
-                      ),
-                      Text('Profile name')
-                    ],
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Column(
-                    children: <Widget>[
-                      CircleAvatar(
-                        child: Icon(Icons.account_circle),
-                        radius: 35,
-                      ),
-                      Text('Profile name')
-                    ],
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Column(
-                    children: <Widget>[
-                      CircleAvatar(
-                        child: Icon(Icons.account_circle),
-                        radius: 35,
-                      ),
-                      Text('Profile name')
-                    ],
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Column(
-                    children: <Widget>[
-                      CircleAvatar(
-                        child: Icon(Icons.account_circle),
-                        radius: 35,
-                      ),
-                      Text('Profile name')
-                    ],
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Column(
-                    children: <Widget>[
-                      CircleAvatar(
-                        child: Icon(Icons.account_circle),
-                        radius: 35,
-                      ),
-                      Text('Profile name')
-                    ],
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Column(
-                    children: <Widget>[
-                      CircleAvatar(
-                        child: Icon(Icons.account_circle),
-                        radius: 35,
-                      ),
-                      Text('Profile name')
-                    ],
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Column(
-                    children: <Widget>[
-                      CircleAvatar(
-                        child: Icon(Icons.account_circle),
-                        radius: 35,
-                      ),
-                      Text('Profile name')
-                    ],
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                ],
+        body: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: List.generate(
+              5,
+                  (index) => Container(
+                margin: EdgeInsets.all(5),
+                child: Column(
+                  children: <Widget>[
+                    CircleAvatar(
+                      backgroundImage: AssetImage(profileImages[index]),
+                      radius: 35,
+                    ),
+                    Text("Profile name")
+                  ],
+                ),
               ),
-            )
-          ],
+            ),
+          ),
         ),
       ),
     );
